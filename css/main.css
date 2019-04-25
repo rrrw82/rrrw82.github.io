@@ -104,6 +104,14 @@ a {
   text-decoration: none;
   text-transform: uppercase;
 }
+.nav-links a,
+.drop-trigger,
+.show-mobile-menu {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 
 /* Dropdown Styles */
 .dropdown {
@@ -561,23 +569,50 @@ a {
 
   /* Header Styles */
   .header-nav {
+    background-color: #444;
+    box-sizing: border-box;
+    left: 0;
     max-height: 0;
     overflow: hidden;
     padding: 0;
+    position: absolute;
+    text-align: center;
+    top: 10vh;
     transition: all 0.5s ease-in-out;
+    width: 100vw;
+    z-index: 9;
+  }
+  .header-nav li {
+    display: block;
+    margin-top: 1em;
   }
   .header-nav > li {
     margin-left: 0.25em;
-    bottom: 0;
   }
   .header-nav > li ~ li {
-    padding-left: 0.25em;
+    border: 0;
+    padding: 0;
+  }
+  .header-nav li:last-child {
+    margin-bottom: 1em;
+  }
+  .header-nav li:first-child a {
+    color: #fff;
   }
   .nav-links a {
     font-size: 3.25vw;
   }
   .header-logo {
     left: auto;
+  }
+
+  /* Hide Dropdown in the Nav Menu */
+  .header-nav .dropdown:hover .drop-menu,
+  .header-nav .drop-trigger:after {
+    display: none;
+  }
+  .header-nav .drop-trigger {
+    padding-right: 0;
   }
 
   /* Mobile Menu */
@@ -592,6 +627,16 @@ a {
   }
   .mobile-menu-check:checked ~ .header-nav {
     max-height: 1000px;
+  }
+  .mobile-menu-check:checked ~ .show-mobile-menu:after {
+    background-color: #000;
+    color: #ed6e2f;
+    content: "CLOSE";
+    left: 0;
+    position: absolute;
+    top: 1.5em;
+    width: 100%;
+    text-align: center;
   }
 
   /* Home Styles */
