@@ -568,6 +568,7 @@ a {
   }
   .header-nav > li {
     margin-left: 0.25em;
+    bottom: 0;
   }
   .header-nav > li ~ li {
     padding-left: 0.25em;
